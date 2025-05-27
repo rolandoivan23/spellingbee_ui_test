@@ -1,0 +1,17 @@
+<ivy-module version="2.0">
+    <info organisation="com.spelling_bee" module="AutomationProject"/>
+    <configurations>
+        <conf name="default" description="Default configuration"/>
+        <conf name="test" extends="default" description="Test configuration"/>
+    </configurations>
+    <dependencies>
+        <dependency org="org.seleniumhq.selenium" name="selenium-java" rev="4.21.0" conf="test->default"/>
+
+        <dependency org="org.testng" name="testng" rev="7.10.2" conf="test->default"/>
+
+        <dependency org="io.github.bonigarcia" name="webdrivermanager" rev="5.8.0" conf="test->default"/>
+
+        <dependency org="org.slf4j" name="slf4j-api" rev="2.0.13" conf="test->default"/>
+        <dependency org="org.slf4j" name="slf4j-simple" rev="2.0.13" conf="test->default"/>
+    </dependencies>
+</ivy-module>
