@@ -1,6 +1,6 @@
 package com.spelling_bee.tests;
 
-import com.pom.pages.Login;
+import com.pom.pages.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,7 +13,7 @@ public class CategoriesTest extends BaseTest {
     @Test(description = "Create category")
     public void createCategory() throws InterruptedException {
         WebDriver driver = getDriver();
-        Login loginPage = new Login(driver);
+        LoginPage loginPage = new LoginPage(driver);
         loginPage.login();
         driver.get("https://blog.mexclouds.com/categories/new");
         driver.findElement(By.id("category_name")).wait(1500);

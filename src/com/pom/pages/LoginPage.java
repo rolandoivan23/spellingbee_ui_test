@@ -1,13 +1,12 @@
 package com.pom.pages;
 
-import org.apache.commons.logging.Log;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class Login {
+public class LoginPage {
     private WebDriver driver;
 
-    public Login(WebDriver driver){
+    public LoginPage(WebDriver driver){
         this.driver = driver;
     }
     public void login(){
