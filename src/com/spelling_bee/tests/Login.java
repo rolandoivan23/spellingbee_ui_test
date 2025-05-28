@@ -15,17 +15,8 @@ public class Login {
         ChromeOptions option = new ChromeOptions();
         option.addArguments("--window-size=1920,1080");
         WebDriver driver = new ChromeDriver(option);
-        driver.get("https://blog.mexclouds.com");
-        driver.findElement(By.linkText("Login")).click();
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        driver.findElement(By.id("email_address")).sendKeys("rolando.vazquez@hey.com");
-        driver.findElement(By.id("password")).sendKeys("123pum");
-
-        driver.findElement(By.cssSelector("input[value=\"Sign in\"]")).click();
+        com.pom.pages.Login loginPage = new com.pom.pages.Login(driver);
+        loginPage.login();
         Thread.sleep(1000);
         Assert.assertEquals(driver.findElement(By.linkText("New Post")).getText(), "New Post");
         driver.quit();
