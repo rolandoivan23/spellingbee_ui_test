@@ -4,21 +4,15 @@ import com.pom.pages.Login;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.Assertion;
 
 import java.util.Random;
 
-public class Categories {
+public class CategoriesTest extends BaseTest {
     @Test(description = "Create category")
     public void createCategory() throws InterruptedException {
-        ChromeOptions option = new ChromeOptions();
-        option.addArguments("--window-size=1920,1080");
-        WebDriver driver = new ChromeDriver(option);
+        WebDriver driver = getDriver();
         Login loginPage = new Login(driver);
         loginPage.login();
         driver.get("https://blog.mexclouds.com/categories/new");

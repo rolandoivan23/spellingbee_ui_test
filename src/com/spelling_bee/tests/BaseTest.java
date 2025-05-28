@@ -6,10 +6,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
+import java.lang.reflect.Method;
 import java.time.Duration;
 
 /**
@@ -29,6 +31,7 @@ public class BaseTest {
      * @param browser The name of the browser to initialize (e.g., "chrome", "firefox").
      * This parameter is typically passed from the testng.xml file.
      */
+    @Parameters("browser")
     @BeforeMethod
     public void setUp(String browser) {
         WebDriver webDriver;
@@ -59,7 +62,7 @@ public class BaseTest {
                 break;
         }
 
-        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); // Implicit wait
+        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5)); // Implicit wait
         webDriver.manage().window().maximize(); // Maximize browser window
         driver.set(webDriver); // Set the driver for the current thread
         System.out.println("WebDriver setup complete for thread: " + Thread.currentThread().getId());
@@ -70,7 +73,7 @@ public class BaseTest {
      *
      * @return WebDriver instance.
      */
-    public WebDriver getDriver() {
+    protected WebDriver getDriver() {
         return driver.get();
     }
 
